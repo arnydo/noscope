@@ -14,15 +14,44 @@ Here are a few examples of how to use NOSCOPE:
 
 ```bash
 # Scope domains against a list of in-scope IPs and CIDRs
-python noscope.py --domain example.com subdomain.example.com --scope-file scope.txt
+$ python3 noscope.py --domain example.com subdomain.example.com --scope-file scope.txt
+
+┏━┓╋┏┳━━━┳━━━┳━━━┳━━━┳━━━┳━━━┓
+┃┃┗┓┃┃┏━┓┃┏━┓┃┏━┓┃┏━┓┃┏━┓┃┏━━┛
+┃┏┓┗┛┃┃╋┃┃┗━━┫┃╋┗┫┃╋┃┃┗━┛┃┗━━┓
+┃┃┗┓┃┃┃╋┃┣━━┓┃┃╋┏┫┃╋┃┃┏━━┫┏━━┛
+┃┃╋┃┃┃┗━┛┃┗━┛┃┗━┛┃┗━┛┃┃╋╋┃┗━━┓
+┗┛╋┗━┻━━━┻━━━┻━━━┻━━━┻┛╋╋┗━━━┛
+
+💾 https://github.com/arnydo/noscope
+🐦 https://twitter.com/kyle_parrish_
+
+Domain does not exist: subdomain.example.com
++-----------------+-----------------+
+| Domain          | IP              |
++=================+=================+
+| example.com     | 93.184.216.34   |
++-----------------+-----------------+
 
 # Scope IPs against a list of in-scope IPs and CIDRs
-python noscope.py --ip 192.168.0.1 10.0.0.1 --scope-file scope.txt
+python3 noscope.py --ip 192.168.0.1 10.0.0.1 --scope-file scope.txt
+
+┏━┓╋┏┳━━━┳━━━┳━━━┳━━━┳━━━┳━━━┓
+┃┃┗┓┃┃┏━┓┃┏━┓┃┏━┓┃┏━┓┃┏━┓┃┏━━┛
+┃┏┓┗┛┃┃╋┃┃┗━━┫┃╋┗┫┃╋┃┃┗━┛┃┗━━┓
+┃┃┗┓┃┃┃╋┃┣━━┓┃┃╋┏┫┃╋┃┃┏━━┫┏━━┛
+┃┃╋┃┃┃┗━┛┃┗━┛┃┗━┛┃┗━┛┃┃╋╋┃┗━━┓
+┗┛╋┗━┻━━━┻━━━┻━━━┻━━━┻┛╋╋┗━━━┛
+
+💾 https://github.com/arnydo/noscope
+🐦 https://twitter.com/kyle_parrish_
+
+10.0.0.1
 ```
 
 ## Changelog
 
-- **v1.0**: Initial release of NOSCOPE.
+See changes in [CHANGELOG](./CHANGELOG.md)
 
 ## Contribution
 
@@ -30,7 +59,7 @@ Contributions to NOSCOPE are welcome! If you encounter any issues, have ideas fo
 
 ## License
 
-NOSCOPE is licensed under the GPL License. See the [LICENSE](LICENSE) file for details.
+NOSCOPE is licensed under the GPL License. See the [LICENSE](LICENSE.md) file for details.
 
 ## Contact
 

@@ -103,6 +103,9 @@ def get_domain_ips(domain):
     except dns.resolver.NoAnswer:
         print("No DNS response received for:", domain)
         return []
+    except dns.resolver.NXDOMAIN:
+        print("Domain does not exist:", domain)
+        return []
 
 def is_ip_in_cidr(ip_address, scope):
     """Checks if an IP address is within the defined CIDR range."""
@@ -191,7 +194,8 @@ def main():
         parser.error("At least one of --domain or --domain-list or --ip or --i-list must be specified.")
 
     scope = read_cidr_ranges(args.scope_file)
-
+    domains = args.domain
+    ips = args.ip
     scoped_data = []
 
     if hasattr(args, "domain") and args.domain:
@@ -203,10 +207,10 @@ def main():
 
     if hasattr(args, "ip") and args.ip:
         ips = args.ip
-        scoped_data.extend([(ip, "") for ip in scope_ips(ips, scope)])
+        scoped_data.extend([(ip) for ip in scope_ips(ips, scope)])
     elif hasattr(args, "ip_list") and args.ip_list:
         ips = read_file(args.ip_list)
-        scoped_data.extend([(ip, "") for ip in scope_ips(ips, scope)])
+        scoped_data.extend([(ip) for ip in scope_ips(ips, scope)])
 
     if args.output_file:
         with open(args.output_file, 'w') as outfile:
@@ -215,7 +219,12 @@ def main():
 
     # Print output in tabular format
     if len(scoped_data) > 0:
-        print(tabulate(scoped_data, headers=["Domain", "IP"], tablefmt="grid"))
+        if domains:
+            print(tabulate(scoped_data, headers=["Domain", "IP"], tablefmt="grid"))
+        elif ips:
+            for ip in scoped_data:
+                print(ip)
+
     else:
         print("None of the provided items are not in scope.")
 
