@@ -4,6 +4,13 @@
 
 The primary goal of NOSCOPE is to simplify the scoping process for security assessments. By allowing users to specify domains and/or IPs to be checked against a list of in-scope IPs and CIDRs, NOSCOPE helps ensure that the assessment focuses on the intended targets, thereby maximizing efficiency and accuracy.
 
+## Installation
+
+```bash
+git clone https://github.com/arnydo/noscope
+pip install -r requirements.txt
+```
+
 ## Usage
 
 To use NOSCOPE, simply provide the tool with the domains and/or IPs you want to scope, along with a file containing the list of in-scope IPs and CIDRs. NOSCOPE will then compare the provided targets against the specified scope and output the results.
