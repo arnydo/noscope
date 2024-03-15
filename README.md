@@ -17,6 +17,13 @@ To use NOSCOPE, simply provide the tool with the domains and/or IPs you want to 
 
 ## Examples
 
+Using an exampled `scope.txt` with the following content:
+
+```txt
+93.184.216.0/24
+10.0.0.0/24
+```
+
 Here are a few examples of how to use NOSCOPE:
 
 ```bash
